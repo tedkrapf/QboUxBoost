@@ -1,0 +1,28 @@
+//FF guide - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript
+
+{
+  "manifest_version": 2,
+  "name": "QBO UX Boost",
+  "version": "1.0",
+
+  "description": "Allows you to optionally remove annoying QBO 'features' like Intuit ads.",
+
+  "icons": {
+    "48": "/icons/qbouxboost.png"
+  },
+
+  "permissions": [ "activeTab" ],
+
+  "browser_action": {
+    "default_icon": "icons/qbouxboost.png",
+    "default_title": "QBO UX Boost",
+    "default_popup": "/popup/config.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [ "*://*.app.qbo.intuit.com/*" ],
+      "js": [ "/scripts/_start.js" ]
+    }
+  ]
+}
